@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.wzy.producer.dao.JudgeMapper">
+
+<resultMap type="cn.wzy.producer.entity.OnlineJudgeQuestionLibraryEntity" id="lib-map">
+    <id  property="id" column="id" javaType="Integer" jdbcType="INTEGER"/>
+    <result property="title" column="title" javaType="String" jdbcType="VARCHAR"/>
+    <result property="topicDetails" column="topic_details" javaType="String" jdbcType="VARCHAR"/>
+    <result property="judgeId" column="judge_id" javaType="String" jdbcType="VARCHAR"/>
+    <result property="input" column="input" javaType="String" jdbcType="VARCHAR"/>
+    <result property="output" column="output" javaType="String" jdbcType="VARCHAR"/>
+    <result property="sampleInput" column="sample_input" javaType="String" jdbcType="VARCHAR"/>
+    <result property="sampleOutput" column="sample_output" javaType="String" jdbcType="VARCHAR"/>
+    <result property="createTime" column="create_time" javaType="Date" jdbcType="TIMESTAMP"/>
+    <result property="updateTime" column="update_time" javaType="Date" jdbcType="TIMESTAMP"/>
+    <result property="backup1" column="backup1" javaType="String" jdbcType="VARCHAR"/>
+    <result property="backup2" column="backup2" javaType="String" jdbcType="VARCHAR"/>
+</resultMap>
+
+<select id="selectById" parameterType="java.lang.Integer" resultMap="lib-map">
+    SELECT *
+    FROM online_judge_question_library
+    WHERE id = #{libraryId,jdbcType=INTEGER}
+</select>
+ 
+</mapper>
